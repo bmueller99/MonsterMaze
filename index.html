@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monster Madness</title>
+  <style>
+    body {
+      cursor: crosshair;
+      font-family: Georgia, Helvetica, sans-serif;
+      font-weight: bold;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+	#logo_M {
+      position: absolute;
+      top: 80px;
+      left: 250px;
+	  width: 100px;
+	  height: 200px;
+      z-index: 100;
+	}
+	#logo_O {
+      position: absolute;
+      top: 80px;
+      left: 334px;
+	  width: 100px;
+	  height: 200px;
+      z-index: 100;
+	}
+	#logo_N {
+      position: absolute;
+      top: 80px;
+      left: 401px;
+	  width: 100px;
+	  height: 200px;
+      z-index: 100;
+	}
+	#logo_S {
+      position: absolute;
+      top: 80px;
+      left: 462px;
+	  width: 100px;
+	  height: 200px;
+      z-index: 100;
+	}
+	#logo_T {
+      position: absolute;
+      top: 80px;
+      left: 511px;
+	  width: 100px;
+	  height: 200px;
+      z-index: 100;
+	}
+	#logo_E {
+      position: absolute;
+      top: 80px;
+      left: 572px;
+	  width: 100px;
+	  height: 200px;
+      z-index: 100;
+	}
+	#logo_R {
+      position: absolute;
+      top: 80px;
+      left: 625px;
+	  width: 100px;
+	  height: 200px;
+      z-index: 100;
+	}
+    #intro {
+    	position: absolute;
+    	/*top: 0px;*/
+      background-color: #000000;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 32px;
+      opacity: 1.0;
+      /*padding: 100px;*/
+      text-align: center;
+      z-index: 100;
+	}
+    #intropic {
+    	position: absolute;
+    	top: 240px;
+    	left: 10px;
+        z-index: 100;
+	}
+    #introtext {
+    	position: absolute;
+        text-align: center;
+    	top: 620px;
+    	/*left: 10px;*/
+        color: #FFFFFF;
+        cursor: pointer;
+        font-size: 32px;
+        z-index: 100;
+	}
+    #introWebGL {
+        background-color: #000000;
+        top: 360px;
+      	/*left: 100px;*/
+		/*width: 400px;*/
+		/*height: 200px;*/
+        pointer-events: none;
+        position: absolute;
+        z-index: 101;
+    }
+
+	#WebGL-output {
+        position: absolute;
+        background-color: #000000;
+
+        background-image: url('images/background03.jpg');
+
+		top: 0px;
+		left: 0px;
+		width: 900px;
+		height: 700px;
+        z-index: 100;
+	}
+
+
+    #score {
+      position: absolute;
+      top: 120px;
+      left: 50px;
+      color: #FFff00;
+      font-size: 44px;
+      z-index: 9001;
+    }
+    #scoreText {
+      position: absolute;
+      top: 96px;
+      left: 50px;
+      color: #FFff00;
+      font-size: 32px;
+      z-index: 9001;
+	}
+
+	#healthbar {
+      background-color: #cc0000;
+
+      position: absolute;
+      
+	  margin: auto;
+	  vertical-align: middle;
+      top: 136px;
+      height:22px;
+      width: 50%;
+      z-index: 9001;
+	}
+
+    #ammo {
+      position: absolute;
+      top: 120px;
+      right: 50px;
+      color: #00FFFF;
+      font-size: 44px;
+      z-index: 9001;
+    }
+    #ammoText {
+      position: absolute;
+      top: 96px;
+      right: 50px;
+      color: #00FFFF;
+      font-size: 32px;
+      z-index: 9001;
+    }
+
+    #logo {
+      font-size: 10px;
+      position: absolute;
+      text-align: center;
+      top: 20px;
+      width: 100%;
+      z-index: 100;
+    }
+    p {
+      background-color: #EEEEEE;
+      border: 1px solid black;
+      display: inline-block;
+      margin: 0;
+      padding: 5px;
+    }
+    #radar {
+      background-color: #EEEEEE;
+      opacity: 1.0;
+      border: 1px solid black;
+      bottom: 10px;
+      left: 10px;
+      position: absolute;
+      z-index: 9001;
+    }
+    
+    #instructions {
+      position: absolute;	
+      background-color: #000000;
+      color: #FFFFFF;
+      top: 0px;
+      cursor: pointer;
+      font-size: 32px;
+      opacity: 1.0;
+      padding: 20px;
+      text-align: center;
+      z-index: 1201;
+    }
+
+    #gameover {
+    	position: absolute;
+      background-color: #000000;
+      color: #FFFF00;
+      cursor: pointer;
+      font-size: 32px;
+      opacity: 1.0;
+      padding: 20px;
+      text-align: center;
+      z-index: 1000;
+    }
+    
+    #pause {
+      position: absolute;
+      /*background-color: #000000;*/
+      background-image: url('images/pause.png');
+      color: #ffff00;
+      cursor: pointer;
+      font-size: 32px;
+      /*opacity: 0.3;*/
+      padding: 0px;
+      top:240px;
+      left:800px;
+      width:216px;
+      height:78px;
+      text-align: center;
+      z-index: 1001;
+    }
+	#nextLevel {
+      position: absolute;
+      /*background-color: #000000;*/
+      background-image: url('images/level.png');
+      color: #00ff44;
+      cursor: pointer;
+      /*font-weight: bold;*/
+      font-size: 78px;
+      /*opacity: 0.3;*/
+      padding: 0px;
+      top:240px;
+      left:800px;
+      width:193px;
+      height:64px;
+      text-align: center;
+      z-index: 1001;
+	}
+	#message {
+      position: absolute;
+      color: #f66998;
+      cursor: pointer;
+      /*font-weight: bold;*/
+      font-size: 48px;
+      /*opacity: 0.3;*/
+      padding: 0px;
+      top:240px;
+      left:800px;
+      width:400px;
+      height:64px;
+      text-align: center;
+      z-index: 1001;
+	}
+	
+    #debug011 {
+      background-color: #EEEEEE;
+      color: #0000;
+      border: 1px solid black;
+      top: 0px;
+      left: 10px;
+      position: absolute;
+      z-index: 9001;
+    }
+    
+    
+    #hurt {
+      background-color: red;
+      display: none;
+      left: 0;
+      opacity: 0.15;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      z-index: 1200;
+    }
+	
+	#Stats-output {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		z-index: 9999;
+	}
+
+    </style>
+    
+    <script src="libs/jquery-1.7.2.min.js"></script>
+    <script src="libs/three.min66.js"></script>
+    <script src="libs/Mirror66.js"></script>
+    <script src="libs/stats.js"></script>
+    <script src="coin.js"></script>
+    
+<!--
+    <script src="libs/CamControls.js"></script>
+    <script src="libs/PlayerControls.js"></script>
+    <script src="libs/Controller.js"></script>
+    <script src="libs/CamControls.js"></script>
+    <script src="libs/PlayerControls.js"></script>
+-->
+
+    <script src="libs/Tween.js"></script>
+    <script src="main.js"></script>
+
+    <script src="level01.js"></script>
+    <script src="level02.js"></script>
+  
+	<audio id="titlemusic" loop><source src="sounds/title.mp3" type="audio/mpeg" ></audio>
+
+	<audio id="gamemusic0" loop><source src="sounds/game1.mp3" type="audio/mpeg" ></audio>
+	<audio id="gamemusic1" loop><source src="sounds/Wolfenstein3d.mp3" type="audio/mpeg" ></audio>
+	<audio id="gamemusic2" loop><source src="sounds/Monkey-Island-Band2.mp3" type="audio/mpeg" ></audio>
+		
+		
+	<audio id="gameovermusic" loop><source src="sounds/gameover.mp3" type="audio/mpeg" ></audio>
+	<audio id="playerdead" ><source src="sounds/playerdead.mp3" type="audio/mpeg" ></audio>
+	<audio id="ouch" ><source src="sounds/ouch.mp3" type="audio/mpeg" ></audio>
+	<audio id="levelin" ><source src="sounds/levelin.mp3" type="audio/mpeg" ></audio>
+	<audio id="ammupickup" ><source src="sounds/ammupickup.mp3" type="audio/mpeg" ></audio>
+	<audio id="healthpickup" ><source src="sounds/ammupickup.mp3" type="audio/mpeg" ></audio>
+	<audio id="ringpickup" ><source src="sounds/ringpickup.mp3" type="audio/mpeg" ></audio>
+
+	<audio id="gunshot" ><source src="sounds/GunShot1.mp3" type="audio/mpeg" ></audio>
+	<audio id="meinleben" ><source src="sounds/meinleben.mp3" type="audio/mpeg" ></audio>
+
+</head>
+<body>
+
+	<div id="Stats-output"></div>
+	<div id="WebGL-output"></div>
+
+	<div id="scoreText">Score</div>
+	<div id="score">0000</div>
+
+	<div id="ammoText">Ammo</div>
+	<div id="ammo">000</div>
+
+	<div id="healthbar"></div>
+
+<!--
+	<div id="debug01"> debug01 </div>
+	<div id="debug02"> debug02 </div>
+	<div id="debug03"> debug03 </div>
+	<div id="debug04"> debug04 </div>
+-->
+
+	<div id="introWebGL"></div>
+
+</body>
+</html>
